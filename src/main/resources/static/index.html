@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Agenzia viaggi</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!-- JavaScript Bundle with Popper -->
+<style>
+	.imgpiccola{
+		width: 100px;
+		height: 100px;
+	}
+</style>
+</head>
+
+<body>
+	
+
+	<a href="http://localhost:9000/api/viaggi"></a>
+	<h1>Elenco viaggi</h1>
+	
+		
+			
+			<div id="elenco" class="container">
+			
+				<div id="-1" class="row">
+			
+					<div class="col-sm-8">
+						<h1>destinazione</h1>
+					</div>
+			
+					<div class="col-sm-4">
+						<img src="https://source.unsplash.com/user/erondu/100x100" width="100" height="100" alt="immagine" class="imgpiccola">
+					</div>
+			
+				</div>
+		
+		
+		</div>
+
+
+	<script type="text/javascript">
+		
+		var elenco = document.getElementById('elenco'); //mi prendo il contenitore della lista viaggi
+		const URL = "/api/viaggi"; //rotta api del nostro controller
+		
+		fetch(URL)			//chiamata API che restituisce un JSON
+			.then(pippo => pippo.json())		//dico a javascript che questo è un json e di restituirmi un array di oggetti
+			.then(viaggicosavuoi => {
+
+				for(let viaggio of viaggicosavuoi){
+					//creo div che mi servono
+					let divEs = document.createElement('div');
+					let div8 = document.createElement('div');
+					let div4 = document.createElement('div');
+					let destinazione = document.createElement('h1');
+					let descrizione = document.createElement('p');
+					
+
+					//aggiungo titolo e foto
+					destinazione.innerHTML= viaggio.destinazione;
+					div8.appendChild(destinazione);
+					descrizione.innerHTML = viaggio.descrizione;
+					div8.appendChild(descrizione);
+					div4.innerHTML= "<img src='img/caponord.jpg' alt='immagine' class='imgpiccola'>";
+
+					console.log(viaggio.destinazione);
+					//aggiungere classi bootstrap a div8/div4
+					div8.classList.add("col-sm-8");
+					div4.classList.add("col-sm-4");
+					divEs.classList.add("row");
+
+					//metto div8/4 dentro div esterno
+					divEs.appendChild(div8);
+					divEs.appendChild(div4);
+
+					//metto div esterno dentro elenco
+					elenco.appendChild(divEs);
+
+				}
+
+			});
+
+	
+	</script>
+
+</body>
+</html>
