@@ -1,5 +1,5 @@
 package agenzia.entities;
-//Super rocco
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -24,9 +24,8 @@ public class Cliente {
 	private String nome;
 	private String cognome;
 	private String email;
-	private enum Metodo_p{
-		Visa, PayPal
-	}
+	private String metodo_pagamento;
+	
 	
 	@ManyToMany
 	@JoinTable(
@@ -68,6 +67,12 @@ public class Cliente {
 	}
 	public void setViaggi(Set<Viaggio> viaggi) {
 		this.viaggi = viaggi;
+	}
+	public String getMetodo_pagamento() {
+		return metodo_pagamento;
+	}
+	public void setMetodo_pagamento(String metodo_pagamento) {
+		this.metodo_pagamento = metodo_pagamento;
 	}
 	
 	

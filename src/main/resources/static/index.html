@@ -18,7 +18,7 @@
 <body>
 	
 
-	<a href="http://localhost:9000/api/viaggi"></a>
+	<a href="http://localhost:9003/api/viaggi">home</a>
 	<h1>Elenco viaggi</h1>
 	
 		
@@ -32,20 +32,21 @@
 					</div>
 			
 					<div class="col-sm-4">
-						<img src="https://source.unsplash.com/user/erondu/100x100" width="100" height="100" alt="immagine" class="imgpiccola">
+						<img src="https://source.unsplash.com/user/erondu/200x200"  alt="immagine" class="img-fluid">
 					</div>
 			
 				</div>
 		
 		
 		</div>
+		<div id="demo"></div>
 
 
 	<script type="text/javascript">
 		
 		var elenco = document.getElementById('elenco'); //mi prendo il contenitore della lista viaggi
 		const URL = "/api/viaggi"; //rotta api del nostro controller
-		
+		const demo = document.getElementById('demo');
 		fetch(URL)			//chiamata API che restituisce un JSON
 			.then(pippo => pippo.json())		//dico a javascript che questo è un json e di restituirmi un array di oggetti
 			.then(viaggicosavuoi => {
@@ -83,7 +84,23 @@
 
 			});
 
-	
+			function findOne(id) {
+		
+			fetch(URL+"/"+id).then(lj => lj.json()).then(viaggio => {
+
+			let output = '';
+
+			output += '<h1>' + viaggio.destinazione + '</h1>';
+			output += '<p>' + viaggio.descrizione + '</p>';
+			output += '<p>' + viaggio.prezzo + '</p>';
+
+			
+			demo.innerHTML = output;
+
+
+		});
+
+			}
 	</script>
 
 </body>
