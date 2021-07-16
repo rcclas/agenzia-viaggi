@@ -14,9 +14,8 @@ public class ViaggioServiceImpl implements ViaggioService{
 	private ViaggioDAO repo;
 	
 	@Override
-	public Viaggio creaViaggio(Viaggio v) {
-		// TODO Auto-generated method stub
-		return null;
+	public Viaggio creaViaggio(Viaggio viaggio) {
+		return repo.save(viaggio);
 	}
 
 	@Override

@@ -17,7 +17,7 @@ public class Viaggio {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	
 	private int id;
-	//private int giorni;
+	private int durata;
 	private String descrizione;
 	private String destinazione;
 	private double prezzo;
@@ -35,12 +35,12 @@ public class Viaggio {
 	public void setId(int id) {
 		this.id = id;
 	}
-//	public int getGiorni() {
-//		return giorni;
-//	}
-//	public void setGiorni(int giorni) {
-//		this.giorni = giorni;
-//	}
+	public int getGiorni() {
+		return durata;
+	}
+	public void setGiorni(int durata) {
+		this.durata = durata;
+	}
 	public String getDescrizione() {
 		return descrizione;
 	}

@@ -7,12 +7,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <!-- JavaScript Bundle with Popper -->
-<style>
-	.imgpiccola{
-		width: 100px;
-		height: 100px;
-	}
-</style>
 </head>
 
 <body>
@@ -22,14 +16,11 @@
 	<div id="demo"></div>
 
 	<script type="text/javascript">
-		
 		var elenco = document.getElementById('elenco'); //mi prendo il contenitore della lista viaggi
 		const URL = "/api/viaggi/tutti"; //rotta api del nostro controller
-		//for(let id = 1; id < 6; id++){
 		fetch(URL)			//chiamata API che restituisce un JSON
 			.then(viaggi => viaggi.json())		//dico a javascript che questo è un json e di restituirmi un array di oggetti
 			.then(viaggi => {
-
 				for(let viaggio of viaggi){
 					//creo div che mi servono
 					let divEs = document.createElement('div');
@@ -38,7 +29,6 @@
 					let destinazione = document.createElement('h1');
 					let descrizione = document.createElement('p');
 					
-
 					//aggiungo titolo e foto
 					destinazione.innerHTML= viaggio.destinazione;
 					div8.appendChild(destinazione);
@@ -59,12 +49,9 @@
 
 					//metto div esterno dentro elenco
 					elenco.appendChild(divEs);
-
 				}
-
 			});
 		//}
 	</script>
-
 </body>
 </html>
