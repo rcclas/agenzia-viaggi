@@ -1,7 +1,5 @@
 package agenzia.entities;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -25,7 +23,7 @@ public class Cliente {
 	private String cognome;
 	private String email;
 	private String metodo_pagamento;
-	
+
 	
 	@ManyToMany
 	@JoinTable(

@@ -23,10 +23,16 @@ public class ViaggioRestCtrl {
 	List<Viaggio> tutti(){
 		return vs.trovaTuttiViaggi();
 	}
-	
+
 	@GetMapping("/pagamento/{id}")
 	Viaggio trovaUno(@PathVariable("id") int id){ 
 		return vs.trovaViaggio(id);
 	}
+
+	@GetMapping("/{id}")
+	Viaggio trovaViaggio(@PathVariable("id") int id) {
+		return vs.trovaViaggio(id);
+	}
+
 	
 }

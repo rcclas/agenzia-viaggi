@@ -46,12 +46,12 @@
 		
 		var elenco = document.getElementById('elenco'); //mi prendo il contenitore della lista viaggi
 		const URL = "/api/viaggi"; //rotta api del nostro controller
-		const demo = document.getElementById('demo');
-		fetch(URL)			//chiamata API che restituisce un JSON
+		for(let id = 1; id < 6; id++){
+		fetch(URL + "/" + id)			//chiamata API che restituisce un JSON
 			.then(pippo => pippo.json())		//dico a javascript che questo è un json e di restituirmi un array di oggetti
-			.then(viaggicosavuoi => {
+			.then(viaggio => {
 
-				for(let viaggio of viaggicosavuoi){
+				//for(let viaggio of viaggicosavuoi){
 					//creo div che mi servono
 					let divEs = document.createElement('div');
 					let div8 = document.createElement('div');
@@ -80,27 +80,10 @@
 					//metto div esterno dentro elenco
 					elenco.appendChild(divEs);
 
-				}
+				//}
 
 			});
-
-			function findOne(id) {
-		
-			fetch(URL+"/"+id).then(lj => lj.json()).then(viaggio => {
-
-			let output = '';
-
-			output += '<h1>' + viaggio.destinazione + '</h1>';
-			output += '<p>' + viaggio.descrizione + '</p>';
-			output += '<p>' + viaggio.prezzo + '</p>';
-
-			
-			demo.innerHTML = output;
-
-
-		});
-
-			}
+		}
 	</script>
 
 </body>
