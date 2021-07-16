@@ -5,7 +5,7 @@ import agenzia.entities.Cliente;
 
 public interface ClienteService {
 	
-	void creaCliente(Cliente c);
+	Cliente creaCliente(Cliente c);
 	Cliente trovaCliente(int id);
 	List<Cliente> trovaTuttiClienti();
 	Cliente modificaCliente(Cliente c);

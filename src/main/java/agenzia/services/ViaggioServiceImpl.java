@@ -20,26 +20,22 @@ public class ViaggioServiceImpl implements ViaggioService{
 
 	@Override
 	public Viaggio trovaViaggio(int id) {
-		// TODO Auto-generated method stub
 		return repo.findById(id).get();
 	}
 
 	@Override
 	public List<Viaggio> trovaTuttiViaggi() {
-		// TODO Auto-generated method stub
 		return repo.findAll();
 	}
 
 	@Override
-	public Viaggio modificaViaggio(Viaggio v) {
-		// TODO Auto-generated method stub
-		return null;
+	public Viaggio modificaViaggio(Viaggio viaggio) {
+		return repo.save(viaggio);
 	}
 
 	@Override
 	public void eliminaViaggio(int id) {
-		// TODO Auto-generated method stub
-		
+		repo.deleteById(id);
 	}
 
 }
