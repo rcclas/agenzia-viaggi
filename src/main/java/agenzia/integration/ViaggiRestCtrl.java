@@ -9,29 +9,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import agenzia.entities.Viaggio;
-import agenzia.services.ClienteViaggioService;
+import agenzia.services.ViaggioService;
 
 @RestController
 @RequestMapping("/api/viaggi")
-
-public class ViaggioRestCtrl {
+public class ViaggiRestCtrl {
 
 	@Autowired
-	private ClienteViaggioService vs;
+	private ViaggioService viaggio;
 	
-	@GetMapping("")
+	@GetMapping("/tutti")
 	List<Viaggio> tutti(){
-		return vs.trovaTuttiViaggi();
+		return viaggio.trovaTuttiViaggi();
 	}
 
 	@GetMapping("/pagamento/{id}")
 	Viaggio trovaUno(@PathVariable("id") int id){ 
-		return vs.trovaViaggio(id);
+		return viaggio.trovaViaggio(id);
 	}
 
 	@GetMapping("/{id}")
 	Viaggio trovaViaggio(@PathVariable("id") int id) {
-		return vs.trovaViaggio(id);
+		return viaggio.trovaViaggio(id);
 	}
 
 	

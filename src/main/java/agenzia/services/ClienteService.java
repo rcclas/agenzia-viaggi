@@ -1,16 +1,13 @@
 package agenzia.services;
 
 import java.util.List;
-
 import agenzia.entities.Cliente;
-import agenzia.entities.Viaggio;
 
-public interface UtenteService {
+public interface ClienteService {
 	
+	void creaCliente(Cliente c);
 	Cliente trovaCliente(int id);
+	List<Cliente> trovaTuttiClienti();
 	Cliente modificaCliente(Cliente c);
 	void eliminaCliente(int id);
-	void creaCliente(Cliente c);
-	
-	
 }

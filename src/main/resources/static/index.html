@@ -16,42 +16,21 @@
 </head>
 
 <body>
-	
-
-	<a href="http://localhost:9003/api/viaggi">home</a>
-	<h1>Elenco viaggi</h1>
-	
-		
-			
-			<div id="elenco" class="container">
-			
-				<div id="-1" class="row">
-			
-					<div class="col-sm-8">
-						<h1>destinazione</h1>
-					</div>
-			
-					<div class="col-sm-4">
-						<img src="https://source.unsplash.com/user/erondu/200x200"  alt="immagine" class="img-fluid">
-					</div>
-			
-				</div>
-		
-		
-		</div>
-		<div id="demo"></div>
-
+	<a href="/elencoViaggi.html">home</a>
+	<h1>Elenco viaggi</h1>			
+	<div id="elenco" class="container"></div>
+	<div id="demo"></div>
 
 	<script type="text/javascript">
 		
 		var elenco = document.getElementById('elenco'); //mi prendo il contenitore della lista viaggi
-		const URL = "/api/viaggi"; //rotta api del nostro controller
-		for(let id = 1; id < 6; id++){
-		fetch(URL + "/" + id)			//chiamata API che restituisce un JSON
-			.then(pippo => pippo.json())		//dico a javascript che questo è un json e di restituirmi un array di oggetti
-			.then(viaggio => {
+		const URL = "/api/viaggi/tutti"; //rotta api del nostro controller
+		//for(let id = 1; id < 6; id++){
+		fetch(URL)			//chiamata API che restituisce un JSON
+			.then(viaggi => viaggi.json())		//dico a javascript che questo è un json e di restituirmi un array di oggetti
+			.then(viaggi => {
 
-				//for(let viaggio of viaggicosavuoi){
+				for(let viaggio of viaggi){
 					//creo div che mi servono
 					let divEs = document.createElement('div');
 					let div8 = document.createElement('div');
@@ -65,7 +44,8 @@
 					div8.appendChild(destinazione);
 					descrizione.innerHTML = viaggio.descrizione;
 					div8.appendChild(descrizione);
-					div4.innerHTML= "<img src='img/caponord.jpg' alt='immagine' class='imgpiccola'>";
+					div4.innerHTML= "<img src='" + viaggio.url + "' alt='immagine' height='200' width='300'>";
+					//https://source.unsplash.com/user/erondu/200x200
 
 					console.log(viaggio.destinazione);
 					//aggiungere classi bootstrap a div8/div4
@@ -80,10 +60,10 @@
 					//metto div esterno dentro elenco
 					elenco.appendChild(divEs);
 
-				//}
+				}
 
 			});
-		}
+		//}
 	</script>
 
 </body>

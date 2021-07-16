@@ -3,35 +3,44 @@ package agenzia.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-
 import agenzia.entities.Viaggio;
 import agenzia.repos.ViaggioDAO;
 
 @Service
-public class ClienteViaggioServiceImpl implements ClienteViaggioService {
+public class ViaggioServiceImpl implements ViaggioService{
 
-	@Autowired 
-	private ViaggioDAO vrepo;
+	@Autowired
+	private ViaggioDAO repo;
 	
-	
+	@Override
+	public Viaggio creaViaggio(Viaggio v) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	@Override
 	public Viaggio trovaViaggio(int id) {
 		// TODO Auto-generated method stub
-		return vrepo.findById(id).get();
+		return repo.findById(id).get();
 	}
 
 	@Override
 	public List<Viaggio> trovaTuttiViaggi() {
 		// TODO Auto-generated method stub
-		return vrepo.findAll();
+		return repo.findAll();
 	}
 
 	@Override
-	public void eliminaPrenotazione(int id) {
+	public Viaggio modificaViaggio(Viaggio v) {
 		// TODO Auto-generated method stub
-		vrepo.deleteById(id);
+		return null;
+	}
+
+	@Override
+	public void eliminaViaggio(int id) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
