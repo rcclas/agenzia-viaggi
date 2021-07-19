@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org">
+<html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="/api/viaggi/add" th:action="@{/api/viaggi/add}" method="post">
 
+	<form action="/api/viaggi/aggiungi" method="post">
 	<input type="hidden" name="id" value="0"><br>
 	<input type="text" name="descrizione" placeholder="descrizione"><br>
 	<input type="text" name="destinazione" placeholder="destinazione"><br>
@@ -15,5 +15,8 @@
 	<input type="submit" value="Aggiungi"><br>
 	</form>
 	
+<script type="text/javascript">
+	
+</script>
 </body>
 </html>
