@@ -22,6 +22,13 @@ public class ClienteServiceImpl implements ClienteService{
 	public Cliente trovaCliente(int id) {
 		return repo.findById(id).get();
 	}
+	
+	@Override
+	public Cliente trovaClienteByEmail(String email) {
+		if(repo.findByEmail(email).isPresent())
+			return repo.findByEmail(email).get();
+		return null;
+	}
 
 	@Override
 	public List<Cliente> trovaTuttiClienti() {

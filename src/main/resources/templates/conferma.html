@@ -1,13 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
+	<div>
+		<div >
+			<a href="/index.html">HOME</a>
+		</div>
+		<div>
+			<a href="">LOGIN</a>
+		</div>
+	</div>
 	<h1>Ricevuta Acquisto</h1>
 	<h2>Confermiamo la sua prenotazione</h2>
-	<p></p>
-	
+	<p th:text="${cliente.nome}"></p>
+	<p th:text="${viaggio.destinazione}"></p>
 </body>
 </html>
